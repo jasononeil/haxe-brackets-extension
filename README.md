@@ -6,7 +6,7 @@
 
 This extension gives Brackets a few extra features for interacting with Haxe code, including:
 
-* Compiler based code hints / auto completion.  Press Ctrl-Alt-Enter 
+* Compiler based code hints / auto completion.
 * Syntax Highlighting (very basic highlighting for ".hx" files)
 * Hopefully more features soon (see Roadmap below)
 
@@ -54,7 +54,7 @@ These features I would like to implement soon:
 * Quick-Open to jump to any field declaration in the current module
 * Basic hxml highlighting and completion
 
-Any help here appreciated.
+Any help with these features, or suggestions for future features, is appreciated.
 
 ## Contributing
 
