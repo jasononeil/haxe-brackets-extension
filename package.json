@@ -1,0 +1,12 @@
+{
+  "name": "haxe",
+  "title": "Haxe Syntax Highlighter",
+  "description": "Add syntax highlighting support for the Haxe language (.hx).",
+  "homepage": "https://github.com/ForbesLindesay/brackets-language-extensions",
+  "version": "1.1.0",
+  "author": "Forbes Lindesay (http://www.forbeslindesay.co.uk)",
+  "license": "MIT",
+  "engines": {
+    "brackets": ">=0.24.0"
+  }
+}

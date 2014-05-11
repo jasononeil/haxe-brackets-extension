@@ -1,0 +1,23 @@
+-cp src
+-lib jQueryExtern
+-lib nodejs
+-lib detox
+-lib compiletime
+-dce full
+-js main.js
+-main haxeextension.HaxeExtension
+
+#--no-output
+#-D use-rtti-doc
+#--macro haxeextension.compilemacros.ListTypesAndFields.listFieldsForModule( "/usr/lib/haxe/std/List.hx" )
+
+--next
+
+-cp src
+-lib jQueryExtern
+-lib nodejs
+-lib detox
+-lib compiletime
+-dce full
+-js node/HaxeDomain.js
+haxeextension.domain.HaxeDomain

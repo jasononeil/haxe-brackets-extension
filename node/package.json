@@ -1,0 +1,6 @@
+{
+  "name": "brackets-haxe",
+  "devDependencies": {
+    "tmp": "0.0.23"
+  }
+}
