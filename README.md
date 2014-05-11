@@ -10,6 +10,13 @@ This extension gives Brackets a few extra features for interacting with Haxe cod
 * Syntax Highlighting (very basic highlighting for ".hx" files)
 * Hopefully more features soon (see Roadmap below)
 
+## Current Status
+
+This extension is in extremely early stages of development.
+
+I am using it with some success on Ubuntu 12.04 with Brackets sprint 38.  I have not tested it on either Mac or Windows, there will likely be various issues.
+
+I am sharing this now as a few people have asked to see my progress so far, and are possibly interested in contributing.
 
 ## Installation
 
@@ -77,6 +84,21 @@ Then if you want to actually modify the contents:
   `haxe build.hxml`
 * Reload brackets: `F5`, or  
   `Debug -> Reload With Extensions`
+  
+A quick outline of the code base:
+
+* `adobebrackets`: A package containing externs for Adobe Brackets.  
+  These are manually generated from the documentation.  
+  We may try to automate this in future.  If there's interest in maintaining these in a separate haxelib we can look into it.
+* `nodejs`: A package containing externs for various NodeJS libs.  These should probably be moved to a 3rd party lib at some point.
+* `haxeextension`: The package for our extension's code
+	* `codehint`: Classes to help with getting code hints from the compiler.
+	* `commands`: Each command that is registered with the extension.
+	* `compilemacros`: Macros that are added to the build to generate helpful info, like type declaration positions etc.
+	* `domain`: The "domain" is Bracket's way of having code run in a separate thread that has access to the NodeJS APIs.  We use a domain for calling the Haxe compiler, writing to the file system etc.
+	* `model`: Various typedefs used for shifting data around parts of the extension.
+
+---
 
 [haxe]: http://haxe.org
 [brackets]: http://brackets.io
