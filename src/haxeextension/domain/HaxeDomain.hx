@@ -31,30 +31,30 @@ class HaxeDomain {
 	static function init( domainManager:Dynamic ) {
 		if (!domainManager.hasDomain("haxe")) {
 			domainManager.registerDomain("haxe", {major: 0, minor: 1});
+			domainManager.registerCommand(
+				"haxe", // domain name
+				"getMemory", // command name
+				cmdGetMemory, // command handler function
+				false // this command is synchronous in Node
+			);
+			domainManager.registerCommand(
+				"haxe", // domain name
+				"getCompletionHint", // command name
+				CompletionRunner.getCompletionHint, // command handler function
+				true // this command is asynchronous in Node
+			);
+			domainManager.registerCommand(
+				"haxe", // domain name
+				"getAllTypesInBuild", // command name
+				MacroRunner.getAllTypesInBuild, // command handler function
+				true // this command is asynchronous in Node
+			);
+			domainManager.registerCommand(
+				"haxe", // domain name
+				"getAllFieldsInModule", // command name
+				MacroRunner.getAllFieldsInModule, // command handler function
+				true // this command is asynchronous in Node
+			);
 		}
-		domainManager.registerCommand(
-			"haxe", // domain name
-			"getMemory", // command name
-			cmdGetMemory, // command handler function
-			false // this command is synchronous in Node
-		);
-		domainManager.registerCommand(
-			"haxe", // domain name
-			"getCompletionHint", // command name
-			CompletionRunner.getCompletionHint, // command handler function
-			true // this command is asynchronous in Node
-		);
-		domainManager.registerCommand(
-			"haxe", // domain name
-			"getAllTypesInBuild", // command name
-			MacroRunner.getAllTypesInBuild, // command handler function
-			true // this command is asynchronous in Node
-		);
-		domainManager.registerCommand(
-			"haxe", // domain name
-			"getAllFieldsInModule", // command name
-			MacroRunner.getAllFieldsInModule, // command handler function
-			true // this command is asynchronous in Node
-		);
 	}
 }
