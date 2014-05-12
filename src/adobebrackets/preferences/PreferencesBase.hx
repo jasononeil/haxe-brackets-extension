@@ -1,6 +1,7 @@
 package adobebrackets.preferences;
 
 import jQuery.Promise;
+import jQuery.haxe.Either;
 
 //
 // All constructors here I have exposed as private in these externs...

@@ -2,6 +2,7 @@ package adobebrackets.editor;
 
 import adobebrackets.document.Document;
 import adobebrackets.language.Language;
+import jQuery.haxe.Either;
 import jQuery.JQuery;
 import jQuery.Promise;
 import js.html.DivElement;

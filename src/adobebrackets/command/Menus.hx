@@ -2,6 +2,7 @@ package adobebrackets.command;
 
 import adobebrackets.command.KeyBindingManager.PlatformKeyBinding;
 import js.html.MouseEvent;
+import jQuery.haxe.Either;
 
 extern class Menus {
 	static public var BEFORE:String;

@@ -1,6 +1,7 @@
 package adobebrackets.command;
 
 import jQuery.Promise;
+import jQuery.haxe.Either;
 
 extern class Command {
 	@:overload( function(name:String, id:String, commandFn:Dynamic->Dynamic->Dynamic->Dynamic->Dynamic->Dynamic->Either<Promise,Dynamic>):Void {} )

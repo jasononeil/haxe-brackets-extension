@@ -1,6 +1,7 @@
 package adobebrackets.command;
 
 import jQuery.Promise;
+import jQuery.haxe.Either;
 
 extern class CommandManager {
 	public static function get( id:String ):Null<Command>;
