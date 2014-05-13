@@ -293,7 +293,7 @@ dtx.single.ElementManipulation.isDocument = function(node) {
 };
 dtx.single.ElementManipulation.attr = function(elm,attName) {
 	var ret = "";
-	if(dtx.single.ElementManipulation.isElement(elm)) {
+	if(dtx.single.ElementManipulation.isElement(elm) && attName != null) {
 		var element = elm;
 		ret = element.getAttribute(attName);
 		if(ret == null) ret = "";
@@ -303,31 +303,25 @@ dtx.single.ElementManipulation.attr = function(elm,attName) {
 dtx.single.ElementManipulation.text = function(elm) {
 	var text = "";
 	if(elm != null) {
-		if(dtx.single.ElementManipulation.isElement(elm)) text = elm.textContent; else text = elm.nodeValue;
+		if(dtx.single.ElementManipulation.isElement(elm) || dtx.single.ElementManipulation.isDocument(elm)) text = elm.textContent; else text = elm.nodeValue;
 	}
 	return text;
 };
 dtx.single.ElementManipulation.innerHTML = function(elm) {
 	var ret = "";
-	if(elm != null) {
-		var _g = elm.nodeType;
-		switch(_g) {
-		case dtx.DOMType.ELEMENT_NODE:
-			var sb = new StringBuf();
-			var $it0 = new dtx.DOMCollection().addNodeList(elm.childNodes,false).iterator();
-			while( $it0.hasNext() ) {
-				var child = $it0.next();
-				dtx.single.ElementManipulation.printHtml(child,sb,false);
-			}
-			ret = sb.b;
-			break;
-		default:
-			ret = elm.textContent;
+	if(dtx.single.ElementManipulation.isElement(elm) || dtx.single.ElementManipulation.isDocument(elm)) {
+		var sb = new StringBuf();
+		var $it0 = new dtx.DOMCollection().addNodeList(elm.childNodes,false).iterator();
+		while( $it0.hasNext() ) {
+			var child = $it0.next();
+			dtx.single.ElementManipulation.printHtml(child,sb,false);
 		}
-	}
+		ret = sb.b;
+	} else if(elm != null) ret = elm.textContent;
 	return ret;
 };
 dtx.single.ElementManipulation.setInnerHTML = function(elm,html) {
+	if(html == null) html = "";
 	if(elm != null) {
 		var _g = elm.nodeType;
 		switch(_g) {
@@ -491,7 +485,7 @@ haxeextension.HaxeExtension.load = function(require,exports,module) {
 		haxeextension.commands.SelectBuild.registerCommand();
 	});
 	adobebrackets.utils.AppInit.htmlReady(function() {
-		var less = ".haxe-hint {\n\t.hint-code {\n\t\tcolor: rgb(0,0,0);\n\t}\n\t.hint-type {\n\t\tfont-style: italic;\n\t\tcolor: rgb(150,150,150);\n\t}\n}";
+		var less = ".haxe-hint {\n\t.hint-code {\n\t\tcolor: rgb(0,0,0);\n\t}\n\t.hint-type {\n\t\tfont-style: italic;\n\t\tcolor: rgb(150,150,150);\n\t}\n}\n";
 		var cssPromise = adobebrackets.utils.ExtensionUtils.parseLessCode(less);
 		cssPromise.then(function(css) {
 			adobebrackets.utils.ExtensionUtils.addEmbeddedStyleSheet(css);
