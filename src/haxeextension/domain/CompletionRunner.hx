@@ -15,7 +15,7 @@ class CompletionRunner {
 	**/
 	public static function getCompletionHint( req:CompletionRequest, completeFn:String->ProcessResult->Void ) {
 
-		Tmp.dir( {unsafeCleanup: true}, function (err, dirPath) {
+		Tmp.dir( {unsafeCleanup: false}, function (err, dirPath) {
 			if ( err!=null )
 				throw err;
 
