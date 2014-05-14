@@ -263,8 +263,8 @@ dtx.collection.Traversing.find = function(collection,selector) {
 					var results = element.querySelectorAll(selector);
 					newDOMCollection.addNodeList(results);
 				} else {
-					var engine =
-								(('undefined' != typeof Sizzle && Sizzle) ||
+					var engine = 
+								(('undefined' != typeof Sizzle && Sizzle) || 
 								(('undefined' != typeof jQuery) && jQuery.find) ||
 								(('undefined' != typeof $) && $.find))
 							;
@@ -409,9 +409,9 @@ dtx.single.Traversing.find = function(node,selector) {
 			var results = element.querySelectorAll(selector);
 			newDOMCollection.addNodeList(results);
 		} else {
-			var engine =
-						(('undefined' != typeof Sizzle && Sizzle) ||
-						(('undefined' != typeof jQuery) && jQuery.find) ||
+			var engine = 
+						(('undefined' != typeof Sizzle && Sizzle) || 
+						(('undefined' != typeof jQuery) && jQuery.find) || 
 						(('undefined' != typeof $) && $.find))
 					;
 			var results1 = engine(selector,node);
